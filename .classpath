@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="appClientModule"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/Users/saran/Acads/Fall 18/IS/Program/stanford-corenlp-full-2018-10-05/stanford-corenlp-full-2018-10-05/joda-time.jar"/>
+	<classpathentry kind="lib" path="C:/Users/saran/Acads/Fall 18/IS/Program/stanford-corenlp-full-2018-10-05/stanford-corenlp-full-2018-10-05/jollyday.jar"/>
+	<classpathentry kind="lib" path="C:/Users/saran/Acads/Fall 18/IS/Program/stanford-corenlp-full-2018-10-05/stanford-corenlp-full-2018-10-05/protobuf.jar"/>
+	<classpathentry kind="lib" path="C:/Users/saran/Acads/Fall 18/IS/Program/stanford-corenlp-full-2018-10-05/stanford-corenlp-full-2018-10-05/stanford-corenlp-3.9.2.jar" sourcepath="C:/Users/saran/Acads/Fall 18/IS/Program/stanford-corenlp-full-2018-10-05/stanford-corenlp-full-2018-10-05/stanford-corenlp-3.9.2-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/saran/Acads/Fall 18/IS/Program/stanford-corenlp-full-2018-10-05/stanford-corenlp-full-2018-10-05/stanford-corenlp-3.9.2-models.jar"/>
+	<classpathentry kind="lib" path="C:/Users/saran/Acads/Fall 18/IS/Program/stanford-english-corenlp-2018-10-05-models.jar"/>
+	<classpathentry kind="lib" path="C:/Users/saran/Acads/Fall 18/IS/Program/stanford-spanish-corenlp-2018-10-05-models.jar"/>
+	<classpathentry kind="lib" path="C:/Users/saran/Acads/Fall 18/IS/Program/ejml-0.23.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
