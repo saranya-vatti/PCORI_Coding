@@ -26,7 +26,7 @@ public class NLPSpanish {
 	public static void main(String[] args) throws IOException {
 
 		initialize();
-		try (BufferedReader br = new BufferedReader(new FileReader("pcori_patient_spanish.txt"))) {
+		try (BufferedReader br = new BufferedReader(new FileReader("pcori_cg_spanish_contextual.txt"))) {
 			for (String line; (line = br.readLine()) != null;) {
 				Annotation annotation;
 				annotation = new Annotation(line);

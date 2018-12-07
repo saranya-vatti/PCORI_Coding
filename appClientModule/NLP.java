@@ -21,7 +21,7 @@ public class NLP {
 	public static void main(String[] args) throws IOException {
 
 		initialize();
-		try (BufferedReader br = new BufferedReader(new FileReader("pcori_patient_english.txt"))) {
+		try (BufferedReader br = new BufferedReader(new FileReader("pcori_patient_english_contextual.txt"))) {
 			for (String line; (line = br.readLine()) != null;) {
 				Annotation annotation;
 				annotation = new Annotation(line);
