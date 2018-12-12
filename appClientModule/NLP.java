@@ -1,6 +1,8 @@
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
@@ -21,16 +23,34 @@ public class NLP {
 	public static void main(String[] args) throws IOException {
 
 		initialize();
-		try (BufferedReader br = new BufferedReader(new FileReader("pcori_patient_english_contextual.txt"))) {
-			for (String line; (line = br.readLine()) != null;) {
-				Annotation annotation;
-				annotation = new Annotation(line);
-				pipeline.annotate(annotation);
-				List<CoreMap> sentences = annotation.get(CoreAnnotations.SentencesAnnotation.class);
-				Sentiment senti = getSentiment(sentences.get(0));
-				System.out.println(line.replace(',',';') + "," + senti.getSentimentName() + "," + senti.getSentimentScore());
+		String[] filenames = {"pcori_patient_english_contextual", "pcori_patient_english", "pcori_cg_english_contextual",
+				"pcori_cg_english", "acceptability_english"
+		};
+		for(int i=0;i<filenames.length;i++) {
+			try (BufferedReader br = new BufferedReader(new FileReader(filenames[i] + ".txt"))) {
+				@SuppressWarnings("unused")
+				StringBuilder str = new StringBuilder();
+				int sum  = 0;
+				int count = 0;
+				for (String line; (line = br.readLine()) != null;) {
+					Annotation annotation;
+					annotation = new Annotation(line);
+					pipeline.annotate(annotation);
+					List<CoreMap> sentences = annotation.get(CoreAnnotations.SentencesAnnotation.class);
+					Sentiment senti = getSentiment(sentences.get(0));
+					str.append(line.replace(',',';') + "," + senti.getSentimentName() + "," + senti.getSentimentScore()).append("\n");
+					sum += senti.getSentimentScore();
+					count++;
+				}
+				/*try (BufferedWriter br1 = new BufferedWriter(new FileWriter(filenames[i] + ".csv"))) {
+					br1.write(str.toString());
+				}*/
+				System.out.println("The total count of " + filenames[i] + " = " + count);
+				System.out.println("The total sum of " + filenames[i] + " = " + sum);
+				System.out.println("The average score of " + filenames[i] + " = " + ((double)sum/(double)count));
 			}
 		}
+		
 	}
 
 	private static void initialize() {
