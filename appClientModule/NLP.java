@@ -23,8 +23,7 @@ public class NLP {
 	public static void main(String[] args) throws IOException {
 
 		initialize();
-		String[] filenames = {"pcori_patient_english_contextual", "pcori_patient_english", "pcori_cg_english_contextual",
-				"pcori_cg_english", "acceptability_english"
+		String[] filenames = {"pcori_patient_english_comments"
 		};
 		for(int i=0;i<filenames.length;i++) {
 			try (BufferedReader br = new BufferedReader(new FileReader(filenames[i] + ".txt"))) {
@@ -42,9 +41,9 @@ public class NLP {
 					sum += senti.getSentimentScore();
 					count++;
 				}
-				/*try (BufferedWriter br1 = new BufferedWriter(new FileWriter(filenames[i] + ".csv"))) {
+				try (BufferedWriter br1 = new BufferedWriter(new FileWriter(filenames[i] + ".csv"))) {
 					br1.write(str.toString());
-				}*/
+				}
 				System.out.println("The total count of " + filenames[i] + " = " + count);
 				System.out.println("The total sum of " + filenames[i] + " = " + sum);
 				System.out.println("The average score of " + filenames[i] + " = " + ((double)sum/(double)count));

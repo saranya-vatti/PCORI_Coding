@@ -1,6 +1,8 @@
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
@@ -26,8 +28,7 @@ public class NLPSpanish {
 	public static void main(String[] args) throws IOException {
 
 		initialize();
-		String[] filenames = {"pcori_patient_spanish_contextual", "pcori_patient_spanish",
-				"pcori_cg_spanish_contextual", "pcori_cg_spanish"
+		String[] filenames = {"pcori_cg_spanish_comments"
 		};
 		for(int i=0;i<filenames.length;i++) {
 			try (BufferedReader br = new BufferedReader(new FileReader(filenames[i] + ".txt"))) {
@@ -45,9 +46,9 @@ public class NLPSpanish {
 					sum += senti.getSentimentScore();
 					count++;
 				}
-				/*try (BufferedWriter br1 = new BufferedWriter(new FileWriter(filenames[i] + ".csv"))) {
+				try (BufferedWriter br1 = new BufferedWriter(new FileWriter(filenames[i] + ".csv"))) {
 					br1.write(str.toString());
-				}*/
+				}
 				System.out.println("The total count of " + filenames[i] + " = " + count);
 				System.out.println("The total sum of " + filenames[i] + " = " + sum);
 				System.out.println("The average score of " + filenames[i] + " = " + ((double)sum/(double)count));
