@@ -23,7 +23,7 @@ public class NLP {
 	public static void main(String[] args) throws IOException {
 
 		initialize();
-		String[] filenames = {"pcori_patient_english_comments"
+		String[] filenames = {"massage_comments"
 		};
 		for(int i=0;i<filenames.length;i++) {
 			try (BufferedReader br = new BufferedReader(new FileReader(filenames[i] + ".txt"))) {
